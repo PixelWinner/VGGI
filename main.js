@@ -15,13 +15,13 @@ function Model(name) {
     this.iVertexBuffer = gl.createBuffer();
     this.count = 0;
 
-    this.BufferData = function(vertices) {
+    this.BufferData = function (vertices) {
         gl.bindBuffer(gl.ARRAY_BUFFER, this.iVertexBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STREAM_DRAW);
         this.count = vertices.length / 3;
     };
 
-    this.Draw = function() {
+    this.Draw = function () {
         gl.bindBuffer(gl.ARRAY_BUFFER, this.iVertexBuffer);
         gl.vertexAttribPointer(shProgram.iAttribVertex, 3, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(shProgram.iAttribVertex);
@@ -38,7 +38,7 @@ function ShaderProgram(name, program) {
     this.iColor = -1;
     this.iModelViewProjectionMatrix = -1;
 
-    this.Use = function() {
+    this.Use = function () {
         gl.useProgram(this.prog);
     };
 }
@@ -91,20 +91,6 @@ function CreateSievertSurfaceData(C, uSteps, vSteps) {
 
 
 function initGL() {
-    let vertexShaderSource = `
-attribute vec3 vertex;
-uniform mat4 ModelViewProjectionMatrix;
-void main() {
-    gl_Position = ModelViewProjectionMatrix * vec4(vertex, 1.0);
-}`;
-
-    let fragmentShaderSource = `
-precision mediump float;
-uniform vec4 color;
-void main() {
-    gl_FragColor = color;
-}`;
-
     let prog = createProgram(gl, vertexShaderSource, fragmentShaderSource);
 
     shProgram = new ShaderProgram("Basic", prog);
