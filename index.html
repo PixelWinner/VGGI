@@ -1,31 +1,56 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-<title>PA#1</title>
-<style>
-    body {
-        background-color: #EEEEEE;
-    }
-</style>
+    <title>PA#2</title>
+    <style>
+        body {
+            background-color: #EEEEEE;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
 
-<script src="./Utils/trackball-rotator.js"></script>
-<script src="./Utils/m4.js"></script>
-<script src="./shader.js"></script>
-<script src="./main.js"></script>
+        button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
 
+        button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .inputContainer {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            height: 30px;
+            align-items: center;
+        }
+    </style>
 </head>
-<body onload="init()">
 
-<h2>A Cube with "Trackball" Mouse Rotation</h2>
+<body>
+    <h2>Sievert’s Surface</h2>
+    <div class="inputContainer">
+        <p>C:</p>
+        <input type="number" name="C" id="C" min ="0.0" max="10" step="0.1" value="1">
+    </div>
+    <div id="canvas-holder" style="position: relative, overflow: scroll">
+        <canvas width="700" height="700" id="webglcanvas"></canvas>
+    </div>
 
-<p id="message">Drag your mouse on the cube to rotate it.<br>
-(On a touch screen, you can use your finger.)</p>
+    <script defer type="module" src="./main.mjs"></script>
+    <script src="shader.js"></script>
+    <script src="./Utils/m4.js"></script>
+</body>
 
-
-<div id="canvas-holder">
-   <canvas width="600" height="600" id="webglcanvas" style="background-color:red"></canvas>
-</div>
-
-
-</body></html>
+</html>
