@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-    <title>PA#2</title>
+    <title>PA#3</title>
     <style>
         body {
             background-color: #EEEEEE;
@@ -44,13 +44,14 @@
         <p>C:</p>
         <input type="number" name="C" id="C" min ="0.0" max="10" step="0.1" value="1">
     </div>
-    <div id="canvas-holder" style="position: relative, overflow: scroll">
+    <div id="canvas-holder" style="position: relative; overflow: scroll">
         <canvas width="700" height="700" id="webglcanvas"></canvas>
     </div>
 
     <script defer type="module" src="./main.mjs"></script>
     <script src="shader.js"></script>
     <script src="./Utils/m4.js"></script>
+    <script src="./TextureHandler.mjs"></script>
 </body>
 
 </html>
