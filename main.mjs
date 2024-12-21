@@ -131,10 +131,8 @@ function init() {
         return;
     }
 
-    initGL();
-
     try {
-        
+        initGL();
     } catch (e) {
         document.getElementById("canvas-holder").innerHTML =
             "<p>Sorry, could not initialize the WebGL graphics context: " + e + "</p>";
